@@ -24,7 +24,19 @@ Rails.application.routes.draw do
     #rails g way
     # resources :name of controllor
     #only handles the main CRUD actions
-    resources :subs
+    resources :subs do
+      resources :topics
+    end
+
+    #model with a parent and child then we need to do a "a do block"
+      #but only do two levels deep
+    # resources :parent1 do
+    #   resources :child2
+    # end
+
+    # resources :child2 do
+    #   resources child:3
+    # end
 
     # to view the routes
       # in terminal - bundle exec rails routes

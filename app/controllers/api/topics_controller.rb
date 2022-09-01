@@ -22,7 +22,7 @@ class Api::TopicsController < ApplicationController
     if @topic.save
       render json: @topic
     else 
-      render json: { errors: @topic.errors }, status.unprecessable_entity
+      render json: { errors: @topic.errors }, status: :unprocessable_entity
     end
   end
 
@@ -32,7 +32,7 @@ class Api::TopicsController < ApplicationController
     if @topic.update(topic_params)
       render json: @topic
     else 
-      render json: { errors: @topic.errors }, status.unprecessable_entity
+      render json: { errors: @topic.errors }, status: :unprocessable_entity
   end
 
   def destroy

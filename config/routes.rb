@@ -28,6 +28,10 @@ Rails.application.routes.draw do
       resources :topics
     end
 
+    resources :topics except: [:index, :show, :create, :update, :destroy] do
+      resources :comments
+    end
+
     #model with a parent and child then we need to do a "a do block"
       #but only do two levels deep
     # resources :parent1 do

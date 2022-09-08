@@ -96,7 +96,7 @@ class Api::SubsController < ApplicationController
         if @sub.save
             render json: @sub
         else 
-            render json: { erros: @sub.errors }, status: unprecessable_entity
+            render json: { erros: @sub.errors }, status: :unprocessable_entity
         end
     end
 
@@ -106,7 +106,7 @@ class Api::SubsController < ApplicationController
         if @sub.update(sub_params)
             render json: @model_name
         else
-            render json: { errors: @model_name.errors}, status: unprecessable_entity
+            render json: { errors: @model_name.errors}, status: :unprocessable_entity
         end
     end
 

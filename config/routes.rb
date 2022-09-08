@@ -28,7 +28,7 @@ Rails.application.routes.draw do
       resources :topics
     end
 
-    resources :topics except: [:index, :show, :create, :update, :destroy] do
+    resources :topics, except: [:index, :show, :create, :update, :destroy] do
       resources :comments
     end
 

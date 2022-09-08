@@ -25,8 +25,18 @@ const Subs = () => {
         .catch( err => console.log(err) )
   }
 
-  const updateSube = (id, sub) => {
-
+  const updateSub = (id, sub) => {
+    axios.put(`/api/subs/${id}`, { sub })
+        .then( res => {
+            const newUpdatedSubs = subs.map( s => {
+                if (s.id === id) {
+                    return res.data
+                }
+                return s
+            })
+            setSubs(newUpdatedSubs)
+        })
+        .catch( err => console.log(err) )
   }
 
   const deleteSub = (id) => {
@@ -49,6 +59,7 @@ const Subs = () => {
         />
         <SubList
             subs={subs}
+            updateSub={updateSub}
             deleteSub={deleteSub}
         />
 
